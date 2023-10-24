@@ -1,3 +1,5 @@
+package _20_10_2023_EVA;
+
 public class Summenrechner {
     public static int iteration(int n){
         int result = 0;

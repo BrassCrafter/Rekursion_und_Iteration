@@ -1,3 +1,5 @@
+package _20_10_2023_EVA;
+
 public class Potenzfunktion {
     public static double math(double a, int n){
         return Math.pow(a, n);
