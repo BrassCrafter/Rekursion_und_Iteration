@@ -1,0 +1,14 @@
+verschiebe 3 von links über mitte nach rechts
+    verschiebe 2 von links über rechts nach mitte
+        verschiebe 1 von links über mitte nach rechts
+            Output: "Ziehe von links nach rechts"
+        verschiebe 1 von rechts über links nach mitte
+        Output: "Ziehe von links nach mitte"
+            Output: "Ziehe von rechts nach mitte"
+    Output: "Ziehe von links nach rechts"
+    verschiebe 2 von mitte über links nach rechts
+        verschiebe 1 von mitte über rechts nach links
+            Output: "Ziehe von mitte nach links"
+        Output: "Ziehe von mitte nach rechts"
+        verschiebe 1 von links über mitte nach rechts
+            Output: "Ziehe von links nach rechts"
