@@ -1,0 +1,4 @@
+verschiebe 3 von links über Mitte nach rechts
+    verschiebe 2 von links über rechts nach Mitte
+    Aussage: "von links nach rechts"
+    verschiebe 2 von
