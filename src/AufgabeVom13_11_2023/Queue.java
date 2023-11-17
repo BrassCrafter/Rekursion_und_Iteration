@@ -204,7 +204,7 @@ public class Queue<ContentType> {
         if(tail != null){
             tail.setNext(new QueueNode(pContent));
             tail = tail.getNext();
-        } else tail = new QueueNode(pContent); head = new QueueNode(pContent);
+        } else tail = new QueueNode(pContent); head = tail;
     }
 
 
@@ -266,6 +266,9 @@ public class Queue<ContentType> {
         }
 
     }
-    public String toString
+    public String toString(){
+        String str = "";
+        return str;
+    }
 
 } 
