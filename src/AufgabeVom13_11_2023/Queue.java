@@ -266,5 +266,6 @@ public class Queue<ContentType> {
         }
 
     }
+    public String toString
 
 } 
