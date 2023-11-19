@@ -70,14 +70,12 @@ public class QueueSort {
     public static void print(Queue<String> pQueue) {
         Queue<String> tempQueue = new Queue<String>();
         StringBuilder qString = new StringBuilder();
-        // Copy elements to a temporary queue for printing
         while (!pQueue.isEmpty()) {
             String element = pQueue.front();
             qString.append(" ").append("'").append(element).append("'");
             tempQueue.enqueue(element);
             pQueue.dequeue();
         }
-        // Restore elements to the original queue
         while (!tempQueue.isEmpty()) {
             pQueue.enqueue(tempQueue.front());
             tempQueue.dequeue();
