@@ -91,10 +91,10 @@ public class QueueSort {
         System.out.println("Queue to String:" + qString);
     }
     public static void betterToString(Queue<String> pQueue, int length){
-        System.out.print(requeue(pQueue));
+        System.out.print(requeue(pQueue) + " | ");
         if(length > 1)
             betterToString(pQueue, length-1);
-        return ;
+        return;
     }
     public static String requeue(Queue<String> pQueue){
         String front = pQueue.front();
