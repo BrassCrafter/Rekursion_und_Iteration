@@ -17,22 +17,20 @@ public class QueueSort {
         qA.enqueue("OOO");
         qA.enqueue("a");
         qA.enqueue("a");
+        qA.enqueue("A");
         qA.enqueue("a");
         qA.enqueue("a");
-        qA.enqueue("a");
-        print(qA);
-        System.out.println(betterToString(qA));
-        //sort(qA);
-        print(qA);
+        sort(qA);
+        String str = "";
+        for(int i = 0; i<1; i++)
+            str = betterToString(qA);
+        System.out.println(str);
     }
     public static void sort(Queue<String> usQ){
-        System.out.println("sort() Anfang");
-        print(usQ);
-        queueSort(usQ);
-        System.out.println("sort() Ende");
+        quickSort(usQ);
     }
-    private static void queueSort(Queue<String> usQ){
-        System.out.println("queueSort() Anfang");
+    private static void quickSort(Queue<String> usQ){
+
         if(usQ.isEmpty()) return;
         String pivot = usQ.front();
         //Merken pivot wird hier aus der Queue gelöscht
@@ -41,7 +39,7 @@ public class QueueSort {
         Queue<String> aQ = new Queue<String>();
         Queue<String> equalQ = new Queue<String>();
         Queue<String> bfQ = new Queue<String>();
-        print(usQ);
+
         while(!usQ.isEmpty()) {
             if (pivot.compareTo(usQ.front()) < 0)
                 aQ.enqueue(usQ.front());
@@ -51,14 +49,14 @@ public class QueueSort {
                 bfQ.enqueue(usQ.front());
             usQ.dequeue();
         }
-        queueSort(bfQ);
-        queueSort(aQ);
+        quickSort(bfQ);
+        quickSort(aQ);
         merge(usQ, bfQ, pivot, equalQ, aQ);
-        print(usQ);
-        System.out.println("queueSort() Ende");
+
+
     }
     private static void merge(Queue<String> usQ, Queue<String> bfQ, String pivot, Queue<String> equalQ, Queue<String> aQ){
-        System.out.println("merge() Anfang");
+
         while(!bfQ.isEmpty()) {
             usQ.enqueue(bfQ.front());
             bfQ.dequeue();
@@ -67,13 +65,13 @@ public class QueueSort {
         while(!equalQ.isEmpty()) {
             usQ.enqueue(equalQ.front());
             equalQ.dequeue();
-            System.out.println("von Tillmann ihr Säcke");
+
         }
         while(!aQ.isEmpty()) {
             usQ.enqueue(aQ.front());
             aQ.dequeue();
         }
-        System.out.println("merge() Ende");
+
     }
     public static void print(Queue<String> pQueue) {
         Queue<String> tempQueue = new Queue<String>();
@@ -92,12 +90,13 @@ public class QueueSort {
     }
     public static String betterToString(Queue<String> pQueue){
         String str = "";
-        if(pQueue.isEmpty())
-            return str;
-        str += pQueue.front() + " ";
-        pQueue.dequeue();
-        str += betterToString(pQueue);
-        pQueue.enqueue(str.trim());
+        String front = pQueue.front();
+        if(!pQueue.isEmpty()){
+            str += front;
+            pQueue.dequeue();
+            str += " | " + betterToString(pQueue);
+            pQueue.enqueue(front); //// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARH
+        }
         return str;
     }
 }

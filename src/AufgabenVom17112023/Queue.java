@@ -93,13 +93,13 @@ public class Queue<ContentType> {
   }
 
   /**
-   * Das Objekt pContentType wird an die Schlange angehaengt. 
+   * Das Objekt pContentType wird an die Schlange angehaengt.
    * Falls pContentType gleich null ist, bleibt die Schlange unveraendert.
-   * 
-   * @param pContent
-   *            das anzuhaengende Objekt vom Typ ContentType
+   *
+   * @param pContent das anzuhaengende Objekt vom Typ ContentType
+   * @return
    */
-  public void enqueue(ContentType pContent) {
+  public Queue<String> enqueue(ContentType pContent) {
     if (pContent != null) {
       QueueNode newNode = new QueueNode(pContent);
       if (this.isEmpty()) {
@@ -110,13 +110,16 @@ public class Queue<ContentType> {
         tail = newNode;
       }
     }
+    return null;
   }
 
   /**
-   * Das erste Objekt wird aus der Schlange entfernt. 
+   * Das erste Objekt wird aus der Schlange entfernt.
    * Falls die Schlange leer ist, wird sie nicht veraendert.
+   *
+   * @return
    */
-  public void dequeue() {
+  public Queue<String> dequeue() {
     if (!this.isEmpty()) {
       head = head.getNext();
       if (this.isEmpty()) {
@@ -124,6 +127,7 @@ public class Queue<ContentType> {
         tail = null;
       }
     }
+    return null;
   }
 
   /**
