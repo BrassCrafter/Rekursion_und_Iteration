@@ -4,6 +4,7 @@ public class QueueSort {
     public static void main(String[] args) {
         Queue<String> qA = new Queue<String>();
         qA.enqueue("h");
+        qA.enqueue("1");
         qA.enqueue("y");
         qA.enqueue("u");
         qA.enqueue("l");
@@ -13,8 +14,15 @@ public class QueueSort {
         qA.enqueue("s");
         qA.enqueue("g");
         qA.enqueue("a");
+        qA.enqueue("OOO");
+        qA.enqueue("a");
+        qA.enqueue("a");
+        qA.enqueue("a");
+        qA.enqueue("a");
+        qA.enqueue("a");
         print(qA);
-        sort(qA);
+        System.out.println(betterToString(qA, ""));
+        //sort(qA);
         print(qA);
     }
     public static void sort(Queue<String> usQ){
@@ -81,5 +89,15 @@ public class QueueSort {
             tempQueue.dequeue();
         }
         System.out.println("Queue to String:" + qString);
+    }
+    public static String betterToString(Queue<String> pQueue){
+        String str = "";
+        if(pQueue.isEmpty())
+            return str;
+        str += pQueue.front() + " ";
+        pQueue.dequeue();
+        str += betterToString(pQueue);
+        pQueue.enqueue(str.trim());
+        return str;
     }
 }
