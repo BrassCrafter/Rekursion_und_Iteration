@@ -23,9 +23,9 @@ public class QueueSort {
         qA.enqueue("a");
         System.out.println(qA.length());
         sort(qA);
-        betterToString(qA,  qA.length());
+        betterPrint(qA,  qA.length());
         System.out.print("\n");
-        betterToString(qA,  qA.length());
+        betterPrint(qA,  qA.length());
 
     }
     public static void sort(Queue<String> usQ){
