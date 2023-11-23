@@ -21,7 +21,7 @@ public class QueueSort {
         qA.enqueue("a");
         qA.enqueue("a");
         print(qA);
-        System.out.println(betterToString(qA, ""));
+        System.out.println(betterToString(qA));
         //sort(qA);
         print(qA);
     }
