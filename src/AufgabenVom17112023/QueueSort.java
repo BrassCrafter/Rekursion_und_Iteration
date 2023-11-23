@@ -3,6 +3,7 @@ package AufgabenVom17112023;
 public class QueueSort {
     public static void main(String[] args) {
         Queue<String> qA = new Queue<String>();
+        System.out.println(qA.length());
         qA.enqueue("h");
         qA.enqueue("1");
         qA.enqueue("y");
@@ -20,11 +21,12 @@ public class QueueSort {
         qA.enqueue("A");
         qA.enqueue("a");
         qA.enqueue("a");
+        System.out.println(qA.length());
         sort(qA);
-        String str = "";
-        for(int i = 0; i<1; i++)
-            str = betterToString(qA);
-        System.out.println(str);
+        betterToString(qA,  qA.length());
+        System.out.print("\n");
+        betterToString(qA,  qA.length());
+
     }
     public static void sort(Queue<String> usQ){
         quickSort(usQ);
@@ -88,15 +90,16 @@ public class QueueSort {
         }
         System.out.println("Queue to String:" + qString);
     }
-    public static String betterToString(Queue<String> pQueue){
-        String str = "";
+    public static void betterToString(Queue<String> pQueue, int length){
+        System.out.print(requeue(pQueue));
+        if(length > 1)
+            betterToString(pQueue, length-1);
+        return ;
+    }
+    public static String requeue(Queue<String> pQueue){
         String front = pQueue.front();
-        if(!pQueue.isEmpty()){
-            str += front;
-            pQueue.dequeue();
-            str += " | " + betterToString(pQueue);
-            pQueue.enqueue(front); //// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARH
-        }
-        return str;
+        pQueue.dequeue();
+        pQueue.enqueue(front);
+        return front;
     }
 }

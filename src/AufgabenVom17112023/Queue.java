@@ -99,9 +99,11 @@ public class Queue<ContentType> {
    * @param pContent das anzuhaengende Objekt vom Typ ContentType
    * @return
    */
+  private int length = 0;
   public Queue<String> enqueue(ContentType pContent) {
     if (pContent != null) {
       QueueNode newNode = new QueueNode(pContent);
+      length++;
       if (this.isEmpty()) {
         head = newNode;
         tail = newNode;
@@ -122,6 +124,7 @@ public class Queue<ContentType> {
   public Queue<String> dequeue() {
     if (!this.isEmpty()) {
       head = head.getNext();
+      length--;
       if (this.isEmpty()) {
         head = null;
         tail = null;
@@ -144,5 +147,8 @@ public class Queue<ContentType> {
     } else {
       return head.getContent();
     }
+  }
+  public int length(){
+    return length;
   }
 }
