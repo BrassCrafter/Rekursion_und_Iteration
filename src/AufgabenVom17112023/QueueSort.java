@@ -92,13 +92,11 @@ public class QueueSort {
     }
     public static void betterPrint(Queue<String> pQueue, int length){
         System.out.print(requeue(pQueue) + " | ");
-        if(length > 1)
-            betterPrint(pQueue, length-1);
-        return;
+        if(length > 1)betterPrint(pQueue, length-1);
     }
     public static String requeue(Queue<String> pQueue){
         String front = pQueue.front();
-        pQueue.dequeue();
+            pQueue.dequeue();
         pQueue.enqueue(front);
         return front;
     }
